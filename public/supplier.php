@@ -2,16 +2,15 @@
 require "../config.php";
 
 // Check if a record has been deleted
-if (isset($_GET['delete']) && !empty($_GET['delete'])) {
-    $delete_id = $_GET['delete'];
-    // Delete the record from the database
-    $sql_delete = "DELETE FROM supplier WHERE supplier_id = $delete_id";
-    // if ($conn->query($sql_delete) === TRUE) {
-    //   echo "Record deleted successfully.";
-    // } else {
-    //   echo "Error deleting record: " . $conn->error;
-    // }
-  }
+// if (isset($_GET['delete']) && !empty($_GET['delete'])) {
+//     $delete_id = $_GET['delete'];
+//     // Delete the record from the database
+//     $sql_delete = "DELETE FROM supplier WHERE supplier_id = $delete_id";
+//     if ($conn->query($sql_delete) === TRUE) {
+//     } else {
+//       echo "Error deleting record: " . $conn->error;
+//     }
+//   }
 ?>
 
 <?php include "templates/header.php"; ?>
@@ -48,9 +47,21 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
             echo "</tr>";
         }
         echo "</table>";
-        echo "<a href='add_supplier.php' class='btn btn-success'>Add Supplier</a>";
+        
     } else {
         echo "No records found";
+    }
+    echo "<br><br><a href='add_supplier.php' class='btn btn-success'>Add Supplier</a>";
+
+    // Check if a record has been deleted
+    if (isset($_GET['delete']) && !empty($_GET['delete'])) {
+        $delete_id = $_GET['delete'];
+        // Delete the record from the database
+        $sql_delete = "DELETE FROM supplier WHERE supplier_id = $delete_id";
+        if ($conn->query($sql_delete) === TRUE) {
+        } else {
+        echo "Error deleting record: " . $conn->error;
+        }
     }
 
     // Close the database connection

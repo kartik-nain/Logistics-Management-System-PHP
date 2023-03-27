@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 <?php include "templates/navbar.php"; ?>
-<div class="container">
+
     <h2>Add a New Supplier</h2>
     <form method="post">
         <div class="row mb-3">
@@ -109,6 +109,6 @@ if (isset($_POST['submit'])) {
 
         <input type="submit" name="submit" value="Add" class="btn btn-primary">
     </form>
-</div>
+
 
 <?php require "templates/footer.php"; ?>
