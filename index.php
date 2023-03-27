@@ -19,7 +19,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
         exit;
     } else {
         // If the submitted username and password do not match the hardcoded values, show an error message
-        $error_message = "Invalid username or password";
+        $error_message = "Invalid username or password.";
     }
 }
 ?>
@@ -30,10 +30,12 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" href="public/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 
 <body>
-
+    <div class="container">
     <main>
         <h1>Login:</h1>
         <div id="form_data">
@@ -41,12 +43,13 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
                 <label for="username">Username: </label><br>
                 <input type="text" id="username" name="user_name" REQUIRED><br><br>
                 <label for="password">Password: </label><br>
-                <input type="password" id="password" name="passwrd" REQUIRED><br><br><br>
-                <div class="button"><button type="submit">Login</button></div>
+                <input type="password" id="password" name="passwrd" REQUIRED><br><br>
+                <div class="button"><button type="submit"  class="btn btn-primary">Login</button></div>
                 <?php if (isset($error_message)): ?>
-                    <p>
+                    <br>
+                    <div class="alert alert-warning" role="alert">
                         <?php echo $error_message; ?>
-                    </p>
+                    </div>
                 <?php endif; ?>
             </form>
         </div>
@@ -59,7 +62,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
         </a>
     </p>
 
-
+    </div>
 </body>
 
 </html>

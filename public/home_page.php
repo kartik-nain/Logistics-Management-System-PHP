@@ -4,6 +4,6 @@
 
 <?php include "templates/navbar.php"; ?>
 
-<img src="images/lms.jpg" class="img-fluid img-thumbnail">
+<img src="images/lms1.jpg" class="img-fluid img-thumbnail">
 
 <?php include "templates/footer.php"; ?>

@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 
     //Execute the query
     if (mysqli_query($conn, $sql)) {
-        echo "Record created successfully";
+        $add_message = "New Supplier added successfully.";
     } else {
         echo "Error creating record: " . mysqli_error($conn);
     }
@@ -68,60 +68,68 @@ if (isset($_POST['submit'])) {
     <div class="row mb-3">
         <label for="supplier_id" class="col-sm-2 col-form-label">Supplier ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="supplier_id" class="form-control"  maxlength="8">
+            <input type="text" name="supplier_id" class="form-control"  maxlength="8" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="name" class="col-sm-2 col-form-label">Name:</label>
         <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" maxlength="30">
+            <input type="text" name="name" class="form-control" maxlength="30" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="customer_id" class="col-sm-2 col-form-label">Customer ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="customer_id" class="form-control"  maxlength="8">
+            <input type="text" name="customer_id" class="form-control"  maxlength="8" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="warehouse_id" class="col-sm-2 col-form-label">Warehouse ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="warehouse_id" class="form-control"  maxlength="8">
+            <input type="text" name="warehouse_id" class="form-control"  maxlength="8" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="vehicle_id" class="col-sm-2 col-form-label">Vehicle ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="vehicle_id" class="form-control"  maxlength="8">
+            <input type="text" name="vehicle_id" class="form-control"  maxlength="8" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="prod_id" class="col-sm-2 col-form-label">Product ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="prod_id" class="form-control"  maxlength="8">
+            <input type="text" name="prod_id" class="form-control"  maxlength="8" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="prod_description" class="col-sm-2 col-form-label">Product Description:</label>
         <div class="col-sm-10">
-            <input type="text" name="prod_description" class="form-control"  maxlength="255">
+            <input type="text" name="prod_description" class="form-control"  maxlength="255" required>
         </div>
     </div>
 
     <div class="row mb-3">
         <label for="prod_quantity" class="col-sm-2 col-form-label">Product Quantity:</label>
         <div class="col-sm-10">
-            <input type="number" name="prod_quantity" class="form-control">
+            <input type="number" name="prod_quantity" class="form-control" required>
         </div>
     </div>
 
     <input type="submit" name="submit" value="Add" class="btn btn-primary">
+    <br><br>
+
+    <?php if (isset($add_message)): ?>
+        <div class="alert alert-success" role="alert">
+            <?php echo $add_message; ?>
+        </div>
+    <?php endif; ?>
+    
 </form>
 
 
