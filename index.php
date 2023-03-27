@@ -9,7 +9,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
     $password = $_POST['passwrd'];
 
     // Check if the submitted username and password match the hardcoded values
-    if ($username === "kartik-nain" && $password === "password") {
+    if ($username === "admin123" && $password === "password") {
 
         // Store the username in a session variable
         $_SESSION['user_name'] = $username;
@@ -28,16 +28,11 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="public/css/index.css">
 </head>
 
 <body>
-
-        
 
     <main>
         <h1>Login:</h1>
@@ -49,7 +44,9 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
                 <input type="password" id="password" name="passwrd" REQUIRED><br><br><br>
                 <div class="button"><button type="submit">Login</button></div>
                 <?php if (isset($error_message)): ?>
-                    <p><?php echo $error_message; ?></p>
+                    <p>
+                        <?php echo $error_message; ?>
+                    </p>
                 <?php endif; ?>
             </form>
         </div>
@@ -57,11 +54,12 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 
     <p class="validator">
         <a href="http://jigsaw.w3.org/css-validator/check/referer">
-            <img style="border:0;width:88px;height:31px"
-                src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
                 alt="Valid CSS!">
-            </a>
-        </p>
+        </a>
+    </p>
+
+
 </body>
 
 </html>
