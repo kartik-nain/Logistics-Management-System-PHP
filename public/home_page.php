@@ -8,7 +8,7 @@ session_start();
             <?php echo $_SESSION["user_name"]; ?> !
         </h2>
 <ul>
-	<li><a href="manageSupplies.php"><strong>Create</strong></a> - add a user</li>
+	<li><a href="supplier.php"><strong>See</strong></a> all suppliers</li>
 </ul>
 
 
