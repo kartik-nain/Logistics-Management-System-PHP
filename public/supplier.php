@@ -15,11 +15,9 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
 ?>
 
 <?php include "templates/header.php"; ?>
+<?php include "templates/navbar.php"; ?>
 
-    <title>Supplier List</title>
-</head>
-<body>
-<div class="container">
+
     <h2>Supplier List</h2>
 
     <?php
@@ -58,5 +56,5 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     // Close the database connection
     mysqli_close($conn);
     ?>
-</div>
+
 <?php include "templates/footer.php"; ?>

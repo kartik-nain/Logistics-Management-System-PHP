@@ -24,9 +24,12 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 }
 ?>
 
-<?php include "public/templates/header.php"; ?>
-<title>Login Page</title>
-<link rel="stylesheet" href="public/css/index.css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="public/css/index.css">
 </head>
 
 <body>
@@ -57,4 +60,6 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
     </p>
 
 
-    <?php include "public/templates/footer.php"; ?>
+</body>
+
+</html>
