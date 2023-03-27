@@ -1,16 +1,6 @@
+
 <?php 
 require "../config.php";
-
-// Check if a record has been deleted
-// if (isset($_GET['delete']) && !empty($_GET['delete'])) {
-//     $delete_id = $_GET['delete'];
-//     // Delete the record from the database
-//     $sql_delete = "DELETE FROM supplier WHERE supplier_id = $delete_id";
-//     if ($conn->query($sql_delete) === TRUE) {
-//     } else {
-//       echo "Error deleting record: " . $conn->error;
-//     }
-//   }
 ?>
 
 <?php include "templates/header.php"; ?>
@@ -57,8 +47,10 @@ require "../config.php";
     if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         $delete_id = $_GET['delete'];
         // Delete the record from the database
-        $sql_delete = "DELETE FROM supplier WHERE supplier_id = $delete_id";
+        $sql_delete = "DELETE FROM supplier WHERE supplier_id = '$delete_id'";
+        
         if ($conn->query($sql_delete) === TRUE) {
+            header("Location: supplier.php");
         } else {
         echo "Error deleting record: " . $conn->error;
         }

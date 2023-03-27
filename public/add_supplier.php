@@ -33,7 +33,6 @@ if (isset($_POST['submit'])) {
     }
 
     require "../config.php";
-    //require "../common.php";
 
     $conn = mysqli_connect($host, $username, $password, $database);
 
@@ -47,7 +46,7 @@ if (isset($_POST['submit'])) {
     $supplier->Supplier();
     // Construct the SQL query
     $sql = "INSERT INTO supplier 
-        VALUES ('$supplier->supplier_id', '$supplier->name', '$supplier->customer_id', '$supplier->warehouse_id', '$supplier->vehicle_id', '$supplier->prod_id', '$supplier->prod_description', '$supplier->prod_quantity')";
+        VALUES ('$supplier->supplier_id', '$supplier->name', '$supplier->customer_id', '$supplier->warehouse_id', '$supplier->vehicle_id', '$supplier->prod_id', '$supplier->prod_quantity', '$supplier->prod_description')";
 
     //Execute the query
     if (mysqli_query($conn, $sql)) {
