@@ -20,16 +20,8 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    require "../config.php";
-
-    $conn = mysqli_connect($host, $username, $password, $database);
-
-    // Check connection
-    if ($conn === false) {
-        echo ("ERROR: Could not connect. "
-            . mysqli_connect_error());
-    }
-
+    require "../../config.php";
+    
     $driver = new Driver();
     $driver->Driver();
     // Construct the SQL query
@@ -48,8 +40,8 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
-<?php include "templates/navbar.php"; ?>
+<?php require "../templates/header.php"; ?>
+<?php include "../templates/navbar.php"; ?>
 
 <h2>Add a New driver</h2>
 <form method="post">
@@ -100,4 +92,4 @@ if (isset($_POST['submit'])) {
 </form>
 
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer.php"; ?>

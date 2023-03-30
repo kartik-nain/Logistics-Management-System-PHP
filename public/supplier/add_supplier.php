@@ -23,30 +23,22 @@ if (isset($_POST['submit'])) {
         {
             $this->supplier_id = $_POST['supplier_id'];
             $this->name = $_POST['name'];
-            $this->customer_id = $_POST['customer_id'];
-            $this->warehouse_id = $_POST['warehouse_id'];
-            $this->vehicle_id = $_POST['vehicle_id'];
+            $this->customer_id = $_POST['customer_id_chkbox'];
+            $this->warehouse_id = $_POST['warehouse_id_chkbox'];
+            $this->vehicle_id = $_POST['vehicle_id_chkbox'];
             $this->prod_id = $_POST['prod_id'];
             $this->prod_description = $_POST['prod_description'];
             $this->prod_quantity = $_POST['prod_quantity'];
         }
     }
 
-    require "../config.php";
-
-    $conn = mysqli_connect($host, $username, $password, $database);
-
-    // Check connection
-    if ($conn === false) {
-        echo ("ERROR: Could not connect. "
-            . mysqli_connect_error());
-    }
+    require "../../config.php";
 
     $supplier = new Supplier();
     $supplier->Supplier();
     // Construct the SQL query
     $sql = "INSERT INTO supplier 
-        VALUES ('$supplier->supplier_id', '$supplier->name', '$supplier->customer_id', '$supplier->warehouse_id', '$supplier->vehicle_id', '$supplier->prod_id', '$supplier->prod_quantity', '$supplier->prod_description')";
+        VALUES ('$supplier->supplier_id', '$supplier->customer_id', '$supplier->warehouse_id', '$supplier->vehicle_id', '$supplier->name', '$supplier->prod_id', '$supplier->prod_quantity', '$supplier->prod_description')";
 
     //Execute the query
     if (mysqli_query($conn, $sql)) {
@@ -60,8 +52,8 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "templates/header.php"; ?>
-<?php include "templates/navbar.php"; ?>
+<?php require "../templates/header.php"; ?>
+<?php include "../templates/navbar.php"; ?>
 
 <h2>Add a New Supplier</h2>
 <form method="post">
@@ -80,23 +72,68 @@ if (isset($_POST['submit'])) {
     </div>
 
     <div class="row mb-3">
-        <label for="customer_id" class="col-sm-2 col-form-label">Customer ID:</label>
+        <label for="customer_id_chkbox" class="col-sm-2 col-form-label">Customer ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="customer_id" class="form-control"  maxlength="8" required>
+            <?php
+                require "../../config.php";
+                $list = mysqli_query($conn, "select * from Customer");
+                $count = mysqli_num_rows($list)
+            ?>
+            <select name="customer_id_chkbox" required>
+                <option value="">Select One </option>
+                <?php
+                for ($i = 1; $i <= $count; $i++) {
+                    $row = mysqli_fetch_array($list);
+                    ?>
+                    <option value="<?php echo $row["customer_id"] ?>"><?php echo $row["customer_id"] ?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
 
     <div class="row mb-3">
-        <label for="warehouse_id" class="col-sm-2 col-form-label">Warehouse ID:</label>
+        <label for="warehouse_id_chkbox" class="col-sm-2 col-form-label">Warehouse ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="warehouse_id" class="form-control"  maxlength="8" required>
+            <?php
+                require "../../config.php";
+                $list = mysqli_query($conn, "select * from Warehouse");
+                $count = mysqli_num_rows($list)
+            ?>
+            <select name="warehouse_id_chkbox" required>
+                <option value="">Select One </option>
+                <?php
+                for ($i = 1; $i <= $count; $i++) {
+                    $row = mysqli_fetch_array($list);
+                    ?>
+                    <option value="<?php echo $row["warehouse_id"] ?>"><?php echo $row["warehouse_id"] ?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
 
     <div class="row mb-3">
-        <label for="vehicle_id" class="col-sm-2 col-form-label">Vehicle ID:</label>
+        <label for="vehicle_id_chkbox" class="col-sm-2 col-form-label">Vehicle ID:</label>
         <div class="col-sm-10">
-            <input type="text" name="vehicle_id" class="form-control"  maxlength="8" required>
+            <?php
+                require "../../config.php";
+                $list = mysqli_query($conn, "select * from Vehicle");
+                $count = mysqli_num_rows($list)
+            ?>
+            <select name="vehicle_id_chkbox" required>
+                <option value="">Select One </option>
+                <?php
+                for ($i = 1; $i <= $count; $i++) {
+                    $row = mysqli_fetch_array($list);
+                    ?>
+                    <option value="<?php echo $row["vehicle_id"] ?>"><?php echo $row["vehicle_id"] ?></option>
+                <?php
+                }
+                ?>
+            </select>
         </div>
     </div>
 
@@ -133,4 +170,4 @@ if (isset($_POST['submit'])) {
 </form>
 
 
-<?php require "templates/footer.php"; ?>
+<?php require "../templates/footer.php"; ?>

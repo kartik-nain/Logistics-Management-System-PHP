@@ -1,16 +1,11 @@
-
-<?php 
-require "../config.php";
-?>
-
-<?php include "templates/header.php"; ?>
-<?php include "templates/navbar.php"; ?>
+<?php include "../templates/header.php"; ?>
+<?php include "../templates/navbar.php"; ?>
 
 
     <h2>Drivers List</h2>
 
     <?php
-    require "../config.php";
+    require "../../config.php";
 
     // Construct the SQL query to fetch the data from the table
     $sql = "SELECT driver_id, name, address, email, phone FROM driver";
@@ -57,4 +52,4 @@ require "../config.php";
     mysqli_close($conn);
     ?>
 
-<?php include "templates/footer.php"; ?>
+<?php include "../templates/footer.php"; ?>
