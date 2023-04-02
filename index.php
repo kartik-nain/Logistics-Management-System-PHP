@@ -5,23 +5,32 @@ session_start();
 if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 
     // Retrieve the submitted username and password
-    $username = $_POST['user_name'];
-    $password = $_POST['passwrd'];
+    $user_name = $_POST['user_name'];
+    $passwrd = $_POST['passwrd'];
 
-    // Check if the submitted username and password match the hardcoded values
-    if ($username === "admin123" && $password === "password") {
+    require "./config.php";
 
+    // Construct the SQL query to fetch the data from the table
+    $sql = "SELECT username, password FROM login where username ='" . $user_name . "' AND password ='" . $passwrd . "'";
+
+    // Execute the query
+    $result = mysqli_query($conn, $sql);
+
+    // Check if there are any records in the table
+    if (mysqli_num_rows($result) > 0) {
         // Store the username in a session variable
-        $_SESSION['user_name'] = $username;
+        $_SESSION['user_name'] = $user_name;
 
         // Redirect to the homepage
         header("Location: public/home_page.php");
         exit;
+
     } else {
         // If the submitted username and password do not match the hardcoded values, show an error message
-        $error_message = "Invalid username or password.";
+        $error_message = "No record found.";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +58,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
                         <?php echo $error_message; ?>
                     </div>
                 <?php endif; ?>
+                <br>New User? <a href='register.php' class='btn btn-primary'>Register</a>
             </form>
         </div>
     </main>

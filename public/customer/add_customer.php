@@ -1,5 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title> Add Customers</title>
+</head>
+<body>
+    <header>
+        <?php include "../templates/navbar.php"; ?>
+    </header>
+    <main>
 <?php
-
 if (isset($_POST['submit'])) {
 
     class Customer
@@ -39,57 +54,28 @@ if (isset($_POST['submit'])) {
     mysqli_close($conn);
 }
 ?>
-
-<?php require "../templates/header.php"; ?>
-<?php include "../templates/navbar.php"; ?>
-
 <h2>Add a New Customer</h2>
 <form method="post">
-    <div class="">
-        <label for="customer_id" class="">Customer ID:</label>
-        <div class=" ">
-            <input type="text" name="customer_id" class="" maxlength="8" required>
-        </div>
-    </div>
-
-    <div class="">
-        <label for="name" class="">Name:</label>
-        <div class=" ">
-            <input type="text" name="name" class="" maxlength="30" required>
-        </div>
-    </div>
-
-    <div class="">
-        <label for="address" class="">Address:</label>
-        <div class=" ">
-            <input type="text" name="address" class="" maxlength="30" required>
-        </div>
-    </div>
-
-    <div class="">
-        <label for="email" class="col-sm-2 col-form-label">Email:</label>
-        <div class=" ">
-            <input type="email" name="email" class=" " maxlength="30" required>
-        </div>
-    </div>
-
-    <div class="">
-        <label for="phone" class="col-sm-2 col-form-label">Phone No.:</label>
-        <div class=" ">
-            <input type="tel" name="phone" class=" " minLength="10" maxLength="10" required>
-        </div>
-    </div>
-
-    <input type="submit" name="submit" value="Add" class="btn btn-primary">
-    <br><br>
-
+        <label for="customer_id" >Customer ID:</label>
+        <input type="text" name="customer_id" maxlength="8" required>
+        <label for="name" >Name:</label>
+        <input type="text" name="name" maxlength="30" required>
+        <label for="address" >Address:</label>
+        <input type="text" name="address" maxlength="30" required>
+        <label for="email" >Email:</label>
+        <input type="email" name="email" maxlength="30" required>
+        <label for="phone" >Phone No.:</label>
+        <input type="tel" name="phone" minLength="10" maxLength="10" required><br><br>
+        <input type="submit" name="submit" class="submitBtn" value="Add" >
+        <br><br>
     <?php if (isset($add_message)): ?>
-        <div class="alert alert-success" role="alert">
             <?php echo $add_message; ?>
-        </div>
     <?php endif; ?>
 
 </form>
-
-
-<?php require "../templates/footer.php"; ?>
+</main>
+<footer>
+        <?php include "../templates/footer.php"; ?>
+</footer>
+</body>
+</html>
