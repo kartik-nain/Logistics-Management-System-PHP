@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "../templates/header.php"; ?>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title> Add Customers</title>
+    <title> Add Customer</title>
 </head>
 <body>
     <header>
@@ -57,25 +52,23 @@ if (isset($_POST['submit'])) {
 <h2>Add a New Customer</h2>
 <form method="post">
         <label for="customer_id" >Customer ID:</label>
-        <input type="text" name="customer_id" maxlength="8" required>
+        <input type="text" name="customer_id" maxlength="8" required><br><br>
         <label for="name" >Name:</label>
-        <input type="text" name="name" maxlength="30" required>
+        <input type="text" name="name" maxlength="30" required><br><br>
         <label for="address" >Address:</label>
-        <input type="text" name="address" maxlength="30" required>
+        <input type="text" name="address" maxlength="30" required><br><br>
         <label for="email" >Email:</label>
-        <input type="email" name="email" maxlength="30" required>
+        <input type="email" name="email" maxlength="30" required><br><br>
         <label for="phone" >Phone No.:</label>
-        <input type="tel" name="phone" minLength="10" maxLength="10" required><br><br>
-        <input type="submit" name="submit" class="submitBtn" value="Add" >
-        <br><br>
+        <input type="tel" name="phone" minLength="10" maxLength="10" required><br><br><br>
+        <div class="button">
+            <input type="submit" name="submit" value="Add" class="submitBtn">
+        </div><br><br>
     <?php if (isset($add_message)): ?>
             <?php echo $add_message; ?>
     <?php endif; ?>
 
 </form>
 </main>
-<footer>
-        <?php include "../templates/footer.php"; ?>
-</footer>
-</body>
-</html>
+
+<?php include "../templates/footer.php"; ?>

@@ -25,7 +25,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
         if (mysqli_query($conn, $sql_insert)) {
             // Insert successful, display success message
             $error_message = "Register Successful. 
-            <br><a href='index.php' class='Btn'>Go to Login Page.</a>";
+            <br><a href='index.php'><div class='button'><input type='submit' class='submitBtn' name='submit' value='Return to Login Page' ></div></a>";
         } else {
             // Insert failed, display error message
             $error_message = "Registration failed. Please try again later.";
@@ -55,14 +55,14 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
                     <input type="text" id="username" name="user_name" REQUIRED><br><br>
                     <label for="password">Password: </label><br>
                     <input type="password" id="password" name="passwrd" REQUIRED><br><br>
-                    <div class="button"><button type="submit" class="submitBtn">Register</button></div>
-                    <?php if (isset($error_message)): ?>
+                    <div class="button"><input type="submit" class="submitBtn" name='submit' value="Register" ></div>
+                </form>
+                <?php if (isset($error_message)): ?>
                         <br>
                         <div>
                             <?php echo $error_message; ?>
                         </div>
                     <?php endif; ?>
-                </form>
             </div>
         </main>
 

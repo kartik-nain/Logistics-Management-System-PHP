@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "../templates/header.php"; ?>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title> Add Customers</title>
+    <title> Add Vehicle</title>
 </head>
 <body>
     <header>
@@ -58,7 +53,7 @@ if (isset($_POST['submit'])) {
 <h2>Add a New Vehicle</h2>
 <form method="post">
         <label for="vehicle_id" >Vehicle ID:</label>
-            <input type="text" name="vehicle_id"  maxlength="8" required>
+            <input type="text" name="vehicle_id"  maxlength="8" required><br><br>
         <label for="driver_id_chkbox" >Driver ID:</label>
             <?php
                 require "../../config.php";
@@ -75,13 +70,14 @@ if (isset($_POST['submit'])) {
                 <?php
                 }
                 ?>
-            </select>
+            </select><br><br>
         <label for="company" >Company:</label>
-            <input type="text" name="company" maxlength="30" required>
+            <input type="text" name="company" maxlength="30" required><br><br>
         <label for="shipment_weight_pds" >Shipment Weight (in Pounds):</label>
-            <input type="number" name="shipment_weight_pds"  max=2147483648 required><br><br>
-    <input type="submit" name="submit" value="Add" class="submitBtn">
-    <br><br>
+            <input type="number" name="shipment_weight_pds"  max=2147483648 step="0.01" required><br><br><br>
+        <div class="button">
+            <input type="submit" name="submit" value="Add" class="submitBtn">
+        </div><br><br>
 
     <?php if (isset($add_message)): ?>
         <div>
@@ -91,8 +87,5 @@ if (isset($_POST['submit'])) {
 
 </form>
 </main>
-<footer>
-        <?php include "../templates/footer.php"; ?>
-</footer>
-</body>
-</html>
+
+<?php include "../templates/footer.php"; ?>

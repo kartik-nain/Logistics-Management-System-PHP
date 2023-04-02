@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Login Page</title>
-    <link rel="stylesheet" href="../css/footer.css">
-</head>
-<body>
-    <footer>
-        <p>© 2023 Copyright:
-        <a href="MDBootstrap.com">MDBootstrap.com</a></p>
-    </footer>
+<footer>
+    <p>© 2023 Copyright: Kartik Nain & Hardeep SIngh
+    </p>
+</footer>
 </body>
 
 </html>

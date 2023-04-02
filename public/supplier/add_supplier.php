@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "../templates/header.php"; ?>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title>Suppliers</title>
+    <title>Add Supplier</title>
 </head>
 <body>
     <header>
@@ -71,9 +66,9 @@ if (isset($_POST['submit'])) {
 <h2>Add a New Supplier</h2>
 <form method="post">
         <label for="supplier_id" >Supplier ID:</label>
-        <input type="text" name="supplier_id"  maxlength="8" required>
+        <input type="text" name="supplier_id"  maxlength="8" required><br><br>
         <label for="name">Name:</label>
-        <input type="text" name="name" maxlength="30" required>
+        <input type="text" name="name" maxlength="30" required><br><br>
         <label for="customer_id_chkbox" >Customer ID:</label>
             <?php
                 require "../../config.php";
@@ -90,7 +85,7 @@ if (isset($_POST['submit'])) {
                 <?php
                 }
                 ?>
-            </select>
+            </select><br><br>
         <label for="warehouse_id_chkbox" >Warehouse ID:</label>
             <?php
                 require "../../config.php";
@@ -107,7 +102,7 @@ if (isset($_POST['submit'])) {
                 <?php
                 }
                 ?>
-            </select>
+            </select><br><br>
         <label for="vehicle_id_chkbox" >Vehicle ID:</label>
             <?php
                 require "../../config.php";
@@ -124,17 +119,17 @@ if (isset($_POST['submit'])) {
                 <?php
                 }
                 ?>
-            </select>
+            </select><br><br>
         <label for="prod_id">Product ID:</label>
-        <input type="text" name="prod_id"  maxlength="8" required>
+        <input type="text" name="prod_id"  maxlength="8" required><br><br>
         <label for="prod_description" >Product Description:</label>
-        <input type="text" name="prod_description"  maxlength="255" required>
+        <input type="text" name="prod_description"  maxlength="255" required><br><br>
         <label for="prod_quantity" >Product Quantity:</label>
-        <input type="number" name="prod_quantity"  required><br><br>
+        <input type="number" name="prod_quantity"  required><br><br><br>
         <div class="button">
             <input type="submit" class="submitBtn" name='submit' value="Add" >
-        </div>
-    <br><br>
+        </div><br><br>
+   
 
     <?php if (isset($add_message)): ?>
         <div class="alert alert-success" role="alert">
@@ -143,9 +138,6 @@ if (isset($_POST['submit'])) {
     <?php endif; ?>
     
 </form>
-    </main>
-<footer>
-        <?php include "../templates/footer.php"; ?>
-</footer>
-</body>
-</html>
+</main>
+
+<?php include "../templates/footer.php"; ?>

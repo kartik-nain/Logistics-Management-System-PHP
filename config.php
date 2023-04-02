@@ -7,8 +7,8 @@
 
 $host = "localhost";
 $username = "root";
-$password = "Admin@12345";
-$database = "test";
+$password = "1Mysql.com";
+$database = "lms";
 
 $conn = mysqli_connect($host, $username, $password, $database);
 

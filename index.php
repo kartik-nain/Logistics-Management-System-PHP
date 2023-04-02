@@ -51,15 +51,15 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
                 <input type="text" id="username" name="user_name" REQUIRED><br><br>
                 <label for="password">Password: </label><br>
                 <input type="password" id="password" name="passwrd" REQUIRED><br><br>
-                <div class="button"><button type="submit"  class="submitBtn">Login</button></div>
+                <div class="button"><input type="submit" class="submitBtn" name='submit' value="Login" ></div>
                 <?php if (isset($error_message)): ?>
                     <br>
                     <div class="alert alert-warning" role="alert">
                         <?php echo $error_message; ?>
                     </div>
                 <?php endif; ?>
-                <br>New User? <a href='register.php' class='btn btn-primary'>Register</a>
             </form>
+            <br>New User? <a href='register.php'><div class="button"><input type="submit" class="submitBtn" name='submit' value="Register" ></div></a>
         </div>
     </main>
 

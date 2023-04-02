@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include "../templates/header.php"; ?>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <title> Add Customers</title>
+    <title> Add Warehouse</title>
 </head>
 <body>
     <header>
@@ -55,13 +50,14 @@ if (isset($_POST['submit'])) {
 <h2>Add a New Warehouse</h2>
 <form method="post">
         <label for="warehouse_id" >Warehouse ID:</label>
-            <input type="text" name="warehouse_id" maxlength="8" required>
+            <input type="text" name="warehouse_id" maxlength="8" required><br><br>
         <label for="address" >Address:</label>
-            <input type="text" name="address" maxlength="50" required>
+            <input type="text" name="address" maxlength="50" required><br><br>
         <label for="area_sqr_feet" >Area (in Square Feet):</label>
-            <input type="number" name="area_sqr_feet" max=2147483647 required><br><br>
-    <input type="submit" name="submit" value="Add" class="submitBtn">
-    <br><br>
+            <input type="number" name="area_sqr_feet" max=2147483647 step="0.01" required><br><br><br>
+        <div class="button">
+            <input type="submit" name="submit" value="Add" class="submitBtn">
+        </div><br><br>
     <?php if (isset($add_message)): ?>
         <div>
             <?php echo $add_message; ?>
@@ -70,8 +66,5 @@ if (isset($_POST['submit'])) {
 
 </form>
 </main>
-<footer>
-        <?php include "../templates/footer.php"; ?>
-</footer>
-</body>
-</html>
+
+<?php include "../templates/footer.php"; ?>
