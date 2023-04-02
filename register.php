@@ -10,25 +10,28 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 
     require "./config.php";
 
-    // Construct the SQL query to fetch the data from the table
-    $sql = "SELECT username, password FROM login where username ='" . $user_name . "' AND password ='" . $passwrd . "'";
+    // Check if the username already exists in the database
+    $sql_check = "SELECT * FROM login WHERE username = '" . $user_name . "'";
+    $result_check = mysqli_query($conn, $sql_check);
 
-    // Execute the query
-    $result = mysqli_query($conn, $sql);
-
-    // Check if there are any records in the table
-    if (mysqli_num_rows($result) > 0) {
-        // Store the username in a session variable
-        $_SESSION['user_name'] = $user_name;
-
-        // Redirect to the homepage
-        header("Location: public/home_page.php");
-        exit;
-
+    if (mysqli_num_rows($result_check) > 0) {
+        // Username already exists, display error message
+        $error_message = "Username already exists. Please choose a different username.";
     } else {
-        // If the submitted username and password do not match the hardcoded values, show an error message
-        $error_message = "No record found.";
+        // Construct the SQL query to insert the data in the table
+        $sql_insert = "INSERT INTO login VALUES('" . $user_name . "', '" . $passwrd . "')";
+
+        // Insert the data into the table
+        if (mysqli_query($conn, $sql_insert)) {
+            // Insert successful, display success message
+            $error_message = "Register Successful. 
+            <br><a href='index.php' class='btn btn-primary'>Go to Login Page.</a>";
+        } else {
+            // Insert failed, display error message
+            $error_message = "Registration failed. Please try again later.";
+        }
     }
+
 }
 
 ?>
@@ -37,7 +40,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 <html lang="en">
 
 <head>
-    <title>Login Page</title>
+    <title>Register Page</title>
     <link rel="stylesheet" href="public/css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
@@ -46,21 +49,20 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 <body>
     <div class="container">
         <main>
-            <h1>Login:</h1>
+            <h1>Register:</h1>
             <div id="form_data">
                 <form method="post">
                     <label for="username">Username: </label><br>
                     <input type="text" id="username" name="user_name" REQUIRED><br><br>
                     <label for="password">Password: </label><br>
                     <input type="password" id="password" name="passwrd" REQUIRED><br><br>
-                    <div class="button"><button type="submit" class="btn btn-primary">Login</button></div>
+                    <div class="button"><button type="submit" class="btn btn-primary">Register</button></div>
                     <?php if (isset($error_message)): ?>
                         <br>
                         <div class="alert alert-warning" role="alert">
                             <?php echo $error_message; ?>
                         </div>
                     <?php endif; ?>
-                    <br>New User? <a href='register.php' class='btn btn-primary'>Register</a>
                 </form>
             </div>
         </main>
