@@ -1,3 +1,14 @@
+<?php include "../templates/header.php"; ?>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title> Add Vehicle</title>
+</head>
+<body>
+    <header>
+        <?php include "../templates/navbar.php"; ?>
+    </header>
+    <main>
 <?php
 
 if (isset($_POST['submit'])) {
@@ -38,21 +49,12 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "../templates/header.php"; ?>
-<?php include "../templates/navbar.php"; ?>
 
 <h2>Add a New Vehicle</h2>
 <form method="post">
-    <div class="row mb-3">
-        <label for="vehicle_id" class="col-sm-2 col-form-label">Vehicle ID:</label>
-        <div class="col-sm-10">
-            <input type="text" name="vehicle_id" class="form-control" maxlength="8" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="driver_id_chkbox" class="col-sm-2 col-form-label">Driver ID:</label>
-        <div class="col-sm-10">
+        <label for="vehicle_id" >Vehicle ID:</label>
+            <input type="text" name="vehicle_id"  maxlength="8" required><br><br>
+        <label for="driver_id_chkbox" >Driver ID:</label>
             <?php
                 require "../../config.php";
                 $list = mysqli_query($conn, "select * from Driver");
@@ -68,34 +70,22 @@ if (isset($_POST['submit'])) {
                 <?php
                 }
                 ?>
-            </select>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="company" class="col-sm-2 col-form-label">Company:</label>
-        <div class="col-sm-10">
-            <input type="text" name="company" class="form-control" maxlength="30" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="shipment_weight_pds" class="col-sm-2 col-form-label">Shipment Weight (in Pounds):</label>
-        <div class="col-sm-10">
-            <input type="number" name="shipment_weight_pds" class="form-control" max=2147483648 required>
-        </div>
-    </div>
-
-    <input type="submit" name="submit" value="Add" class="btn btn-primary">
-    <br><br>
+            </select><br><br>
+        <label for="company" >Company:</label>
+            <input type="text" name="company" maxlength="30" required><br><br>
+        <label for="shipment_weight_pds" >Shipment Weight (in Pounds):</label>
+            <input type="number" name="shipment_weight_pds"  max=2147483648 step="0.01" required><br><br><br>
+        <div class="button">
+            <input type="submit" name="submit" value="Add" class="submitBtn">
+        </div><br><br>
 
     <?php if (isset($add_message)): ?>
-        <div class="alert alert-success" role="alert">
+        <div>
             <?php echo $add_message; ?>
         </div>
     <?php endif; ?>
 
 </form>
+</main>
 
-
-<?php require "../templates/footer.php"; ?>
+<?php include "../templates/footer.php"; ?>

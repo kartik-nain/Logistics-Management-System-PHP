@@ -1,3 +1,14 @@
+<?php include "../templates/header.php"; ?>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title> Add Warehouse</title>
+</head>
+<body>
+    <header>
+        <?php include "../templates/navbar.php"; ?>
+    </header>
+    <main>
 <?php
 
 if (isset($_POST['submit'])) {
@@ -36,42 +47,24 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "../templates/header.php"; ?>
-<?php include "../templates/navbar.php"; ?>
-
 <h2>Add a New Warehouse</h2>
 <form method="post">
-    <div class="row mb-3">
-        <label for="warehouse_id" class="col-sm-2 col-form-label">Warehouse ID:</label>
-        <div class="col-sm-10">
-            <input type="text" name="warehouse_id" class="form-control" maxlength="8" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="address" class="col-sm-2 col-form-label">Address:</label>
-        <div class="col-sm-10">
-            <input type="text" name="address" class="form-control" maxlength="50" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="area_sqr_feet" class="col-sm-2 col-form-label">Area (in Square Feet):</label>
-        <div class="col-sm-10">
-            <input type="number" name="area_sqr_feet" class="form-control" max=2147483647 required>
-        </div>
-    </div>
-
-    <input type="submit" name="submit" value="Add" class="btn btn-primary">
-    <br><br>
-
+        <label for="warehouse_id" >Warehouse ID:</label>
+            <input type="text" name="warehouse_id" maxlength="8" required><br><br>
+        <label for="address" >Address:</label>
+            <input type="text" name="address" maxlength="50" required><br><br>
+        <label for="area_sqr_feet" >Area (in Square Feet):</label>
+            <input type="number" name="area_sqr_feet" max=2147483647 step="0.01" required><br><br><br>
+        <div class="button">
+            <input type="submit" name="submit" value="Add" class="submitBtn">
+        </div><br><br>
     <?php if (isset($add_message)): ?>
-        <div class="alert alert-success" role="alert">
+        <div>
             <?php echo $add_message; ?>
         </div>
     <?php endif; ?>
 
 </form>
+</main>
 
-
-<?php require "../templates/footer.php"; ?>
+<?php include "../templates/footer.php"; ?>

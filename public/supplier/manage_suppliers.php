@@ -1,9 +1,14 @@
 <?php include "../templates/header.php"; ?>
-<?php include "../templates/navbar.php"; ?>
-
-
-<h2>Suppliers List</h2>
-
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title>Suppliers</title>
+</head>
+<body>
+    <header>
+        <?php include "../templates/navbar.php"; ?>
+    </header>
+    <main>
+    <h2>Suppliers List</h2>
 <?php
 require "../../config.php";
 
@@ -16,7 +21,7 @@ $result = mysqli_query($conn, $sql);
 // Check if there are any records in the table
 if (mysqli_num_rows($result) > 0) {
     // Output the data in a table format
-    echo "<table class='table'>";
+    echo "<table class='table' border='1' style='border-collapse:collapse'>";
     echo "<tr><th>Supplier ID</th><th>Name</th><th>Customer ID</th><th>Warehouse ID</th><th>Vehicle ID</th><th>Product ID</th><th>Product Description</th><th>Product Quantity</th></tr>";
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
@@ -28,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . $row["prod_id"] . "</td>";
         echo "<td>" . $row["prod_description"] . "</td>";
         echo "<td>" . $row["prod_quantity"] . "</td>";
-        echo "<td><a href='?delete=" . $row["supplier_id"] . "' class='btn btn-danger'>Delete</a></td>";
+        echo "<td><a href='?delete=" . $row["supplier_id"] . "' class='Btn'>Delete</a></td>";
         echo "</tr>";
     }
     echo "</table>";
@@ -36,7 +41,7 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "No records found<br>";
 }
-echo "<br><a href='add_supplier.php' class='btn btn-primary'>Add Supplier</a>";
+echo "<br><a href='add_supplier.php' class='Btn'>Add Supplier</a>";
 
 // Check if a record has been deleted
 if (isset($_GET['delete']) && !empty($_GET['delete'])) {
@@ -54,5 +59,13 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
 // Close the database connection
 mysqli_close($conn);
 ?>
+</main>
 
 <?php include "../templates/footer.php"; ?>
+
+
+
+
+
+
+

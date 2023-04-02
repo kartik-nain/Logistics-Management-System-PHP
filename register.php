@@ -25,7 +25,7 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
         if (mysqli_query($conn, $sql_insert)) {
             // Insert successful, display success message
             $error_message = "Register Successful. 
-            <br><a href='index.php' class='btn btn-primary'>Go to Login Page.</a>";
+            <br><a href='index.php'><div class='button'><input type='submit' class='submitBtn' name='submit' value='Return to Login Page' ></div></a>";
         } else {
             // Insert failed, display error message
             $error_message = "Registration failed. Please try again later.";
@@ -42,8 +42,6 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
 <head>
     <title>Register Page</title>
     <link rel="stylesheet" href="public/css/index.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 
 <body>
@@ -56,14 +54,14 @@ if (isset($_POST['user_name']) && isset($_POST['passwrd'])) {
                     <input type="text" id="username" name="user_name" REQUIRED><br><br>
                     <label for="password">Password: </label><br>
                     <input type="password" id="password" name="passwrd" REQUIRED><br><br>
-                    <div class="button"><button type="submit" class="btn btn-primary">Register</button></div>
-                    <?php if (isset($error_message)): ?>
+                    <div class="button"><input type="submit" class="submitBtn" name='submit' value="Register" ></div>
+                </form>
+                <?php if (isset($error_message)): ?>
                         <br>
-                        <div class="alert alert-warning" role="alert">
+                        <div>
                             <?php echo $error_message; ?>
                         </div>
                     <?php endif; ?>
-                </form>
             </div>
         </main>
 
