@@ -14,7 +14,7 @@
     require "../../config.php";
 
     // Construct the SQL query to fetch the data from the table
-    $sql = "SELECT warehouse_id, address, area_sqr_feet FROM warehouse";
+    $sql = "SELECT warehouse_id, address, area_sqr_feet FROM warehouses";
 
     // Execute the query
     $result = mysqli_query($conn, $sql);

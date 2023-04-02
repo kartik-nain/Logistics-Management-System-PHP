@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
     $warehouse = new Warehouse();
     $warehouse->Warehouse();
     // Construct the SQL query
-    $sql = "INSERT INTO Warehouse 
+    $sql = "INSERT INTO warehouses 
         VALUES ('$warehouse->warehouse_id', '$warehouse->address', '$warehouse->area_sqr_feet')";
 
     //Execute the query

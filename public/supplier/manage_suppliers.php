@@ -13,7 +13,7 @@
 require "../../config.php";
 
 // Construct the SQL query to fetch the data from the table
-$sql = "SELECT supplier_id, name, customer_id, warehouse_id, vehicle_id, prod_id, prod_description, prod_quantity FROM supplier";
+$sql = "SELECT supplier_id, name, customer_id, warehouse_id, vehicle_id, prod_id, prod_description, prod_quantity FROM suppliers";
 
 // Execute the query
 $result = mysqli_query($conn, $sql);

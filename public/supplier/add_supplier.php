@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
     $supplier = new Supplier();
     $supplier->Supplier();
     // Construct the SQL query
-    $sql = "INSERT INTO supplier 
+    $sql = "INSERT INTO suppliers 
         VALUES ('$supplier->supplier_id', '$supplier->customer_id', '$supplier->warehouse_id', '$supplier->vehicle_id', '$supplier->name', '$supplier->prod_id', '$supplier->prod_quantity', '$supplier->prod_description')";
 
     //Execute the query

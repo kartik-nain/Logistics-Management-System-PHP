@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
     $customer = new Customer();
     $customer->Customer();
     // Construct the SQL query
-    $sql = "INSERT INTO Customer 
+    $sql = "INSERT INTO customers 
         VALUES ('$customer->customer_id', '$customer->name', '$customer->address', '$customer->email', '$customer->phone')";
 
     //Execute the query

@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     $driver = new Driver();
     $driver->Driver();
     // Construct the SQL query
-    $sql = "INSERT INTO driver 
+    $sql = "INSERT INTO drivers 
         VALUES ('$driver->driver_id', '$driver->name', '$driver->address', '$driver->email', '$driver->phone')";
 
     //Execute the query

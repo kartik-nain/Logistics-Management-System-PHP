@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $vehicle = new Vehicle();
     $vehicle->Vehicle();
     // Construct the SQL query
-    $sql = "INSERT INTO Vehicle 
+    $sql = "INSERT INTO vehicles 
         VALUES ('$vehicle->vehicle_id', '$vehicle->driver_id', '$vehicle->company', '$vehicle->shipment_weight_pds')";
 
     //Execute the query

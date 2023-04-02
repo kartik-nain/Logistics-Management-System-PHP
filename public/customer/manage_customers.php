@@ -14,7 +14,7 @@
     require "../../config.php";
 
     // Construct the SQL query to fetch the data from the table
-    $sql = "SELECT customer_id, name, address, email, phone FROM customer";
+    $sql = "SELECT customer_id, name, address, email, phone FROM customers";
 
     // Execute the query
     $result = mysqli_query($conn, $sql);

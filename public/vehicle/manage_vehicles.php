@@ -14,7 +14,7 @@
     require "../../config.php";
 
     // Construct the SQL query to fetch the data from the table
-    $sql = "SELECT vehicle_id, driver_id, company, shipment_weight_pds FROM vehicle";
+    $sql = "SELECT vehicle_id, driver_id, company, shipment_weight_pds FROM vehicles";
 
     // Execute the query
     $result = mysqli_query($conn, $sql);
