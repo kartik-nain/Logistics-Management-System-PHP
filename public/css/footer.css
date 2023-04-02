@@ -1,0 +1,17 @@
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #212529;
+  color: white;
+  margin-top: auto;
+}
+
+p {
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}

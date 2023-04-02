@@ -45,38 +45,38 @@ if (isset($_POST['submit'])) {
 
 <h2>Add a New Customer</h2>
 <form method="post">
-    <div class="row mb-3">
-        <label for="customer_id" class="col-sm-2 col-form-label">Customer ID:</label>
-        <div class="col-sm-10">
-            <input type="text" name="customer_id" class="form-control" maxlength="8" required>
+    <div class="">
+        <label for="customer_id" class="">Customer ID:</label>
+        <div class=" ">
+            <input type="text" name="customer_id" class="" maxlength="8" required>
         </div>
     </div>
 
-    <div class="row mb-3">
-        <label for="name" class="col-sm-2 col-form-label">Name:</label>
-        <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" maxlength="30" required>
+    <div class="">
+        <label for="name" class="">Name:</label>
+        <div class=" ">
+            <input type="text" name="name" class="" maxlength="30" required>
         </div>
     </div>
 
-    <div class="row mb-3">
-        <label for="address" class="col-sm-2 col-form-label">Address:</label>
-        <div class="col-sm-10">
-            <input type="text" name="address" class="form-control" maxlength="30" required>
+    <div class="">
+        <label for="address" class="">Address:</label>
+        <div class=" ">
+            <input type="text" name="address" class="" maxlength="30" required>
         </div>
     </div>
 
-    <div class="row mb-3">
+    <div class="">
         <label for="email" class="col-sm-2 col-form-label">Email:</label>
-        <div class="col-sm-10">
-            <input type="email" name="email" class="form-control" maxlength="30" required>
+        <div class=" ">
+            <input type="email" name="email" class=" " maxlength="30" required>
         </div>
     </div>
 
-    <div class="row mb-3">
+    <div class="">
         <label for="phone" class="col-sm-2 col-form-label">Phone No.:</label>
-        <div class="col-sm-10">
-            <input type="tel" name="phone" class="form-control" minLength="10" maxLength="10" required>
+        <div class=" ">
+            <input type="tel" name="phone" class=" " minLength="10" maxLength="10" required>
         </div>
     </div>
 

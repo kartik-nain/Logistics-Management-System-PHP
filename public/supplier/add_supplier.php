@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <title>Suppliers</title>
+</head>
+<body>
+    <header>
+        <?php include "../templates/navbar.php"; ?>
+    </header>
+    <main>
 <?php
 
 /**
@@ -52,28 +68,13 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<?php require "../templates/header.php"; ?>
-<?php include "../templates/navbar.php"; ?>
-
 <h2>Add a New Supplier</h2>
 <form method="post">
-    <div class="row mb-3">
-        <label for="supplier_id" class="col-sm-2 col-form-label">Supplier ID:</label>
-        <div class="col-sm-10">
-            <input type="text" name="supplier_id" class="form-control"  maxlength="8" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="name" class="col-sm-2 col-form-label">Name:</label>
-        <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" maxlength="30" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="customer_id_chkbox" class="col-sm-2 col-form-label">Customer ID:</label>
-        <div class="col-sm-10">
+        <label for="supplier_id" >Supplier ID:</label>
+        <input type="text" name="supplier_id"  maxlength="8" required>
+        <label for="name">Name:</label>
+        <input type="text" name="name" maxlength="30" required>
+        <label for="customer_id_chkbox" >Customer ID:</label>
             <?php
                 require "../../config.php";
                 $list = mysqli_query($conn, "select * from Customer");
@@ -90,12 +91,7 @@ if (isset($_POST['submit'])) {
                 }
                 ?>
             </select>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="warehouse_id_chkbox" class="col-sm-2 col-form-label">Warehouse ID:</label>
-        <div class="col-sm-10">
+        <label for="warehouse_id_chkbox" >Warehouse ID:</label>
             <?php
                 require "../../config.php";
                 $list = mysqli_query($conn, "select * from Warehouse");
@@ -112,12 +108,7 @@ if (isset($_POST['submit'])) {
                 }
                 ?>
             </select>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="vehicle_id_chkbox" class="col-sm-2 col-form-label">Vehicle ID:</label>
-        <div class="col-sm-10">
+        <label for="vehicle_id_chkbox" >Vehicle ID:</label>
             <?php
                 require "../../config.php";
                 $list = mysqli_query($conn, "select * from Vehicle");
@@ -134,31 +125,15 @@ if (isset($_POST['submit'])) {
                 }
                 ?>
             </select>
+        <label for="prod_id">Product ID:</label>
+        <input type="text" name="prod_id"  maxlength="8" required>
+        <label for="prod_description" >Product Description:</label>
+        <input type="text" name="prod_description"  maxlength="255" required>
+        <label for="prod_quantity" >Product Quantity:</label>
+        <input type="number" name="prod_quantity"  required><br><br>
+        <div class="button">
+            <input type="submit" class="submitBtn" name='submit' value="Add" >
         </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="prod_id" class="col-sm-2 col-form-label">Product ID:</label>
-        <div class="col-sm-10">
-            <input type="text" name="prod_id" class="form-control"  maxlength="8" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="prod_description" class="col-sm-2 col-form-label">Product Description:</label>
-        <div class="col-sm-10">
-            <input type="text" name="prod_description" class="form-control"  maxlength="255" required>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label for="prod_quantity" class="col-sm-2 col-form-label">Product Quantity:</label>
-        <div class="col-sm-10">
-            <input type="number" name="prod_quantity" class="form-control" required>
-        </div>
-    </div>
-
-    <input type="submit" name="submit" value="Add" class="btn btn-primary">
     <br><br>
 
     <?php if (isset($add_message)): ?>
@@ -168,6 +143,9 @@ if (isset($_POST['submit'])) {
     <?php endif; ?>
     
 </form>
-
-
-<?php require "../templates/footer.php"; ?>
+    </main>
+<footer>
+        <?php include "../templates/footer.php"; ?>
+</footer>
+</body>
+</html>
