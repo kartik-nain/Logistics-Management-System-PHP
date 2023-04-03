@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
         <label for="customer_id_chkbox" >Customer ID:</label>
             <?php
                 require "../../config.php";
-                $list = mysqli_query($conn, "select * from Customer");
+                $list = mysqli_query($conn, "select * from customers");
                 $count = mysqli_num_rows($list)
             ?>
             <select name="customer_id_chkbox" required>
@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
         <label for="warehouse_id_chkbox" >Warehouse ID:</label>
             <?php
                 require "../../config.php";
-                $list = mysqli_query($conn, "select * from Warehouse");
+                $list = mysqli_query($conn, "select * from warehouses");
                 $count = mysqli_num_rows($list)
             ?>
             <select name="warehouse_id_chkbox" required>
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
         <label for="vehicle_id_chkbox" >Vehicle ID:</label>
             <?php
                 require "../../config.php";
-                $list = mysqli_query($conn, "select * from Vehicle");
+                $list = mysqli_query($conn, "select * from vehicles");
                 $count = mysqli_num_rows($list)
             ?>
             <select name="vehicle_id_chkbox" required>

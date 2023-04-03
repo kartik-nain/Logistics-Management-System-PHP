@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
         <label for="driver_id_chkbox" >Driver ID:</label>
             <?php
                 require "../../config.php";
-                $list = mysqli_query($conn, "select * from Driver");
+                $list = mysqli_query($conn, "select * from drivers");
                 $count = mysqli_num_rows($list)
             ?>
             <select name="driver_id_chkbox" required>
