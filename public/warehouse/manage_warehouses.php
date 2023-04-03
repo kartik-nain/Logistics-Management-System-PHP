@@ -43,7 +43,7 @@
     if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         $delete_id = $_GET['delete'];
         // Delete the record from the database
-        $sql_delete = "DELETE FROM warehouse WHERE warehouse_id = '$delete_id'";
+        $sql_delete = "DELETE FROM warehouses WHERE warehouse_id = '$delete_id'";
         
         if ($conn->query($sql_delete) === TRUE) {
             header("Location: manage_warehouses.php");

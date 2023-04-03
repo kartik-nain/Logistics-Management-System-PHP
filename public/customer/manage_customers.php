@@ -45,7 +45,7 @@
     if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         $delete_id = $_GET['delete'];
         // Delete the record from the database
-        $sql_delete = "DELETE FROM customer WHERE customer_id = '$delete_id'";
+        $sql_delete = "DELETE FROM customers WHERE customer_id = '$delete_id'";
         
         if ($conn->query($sql_delete) === TRUE) {
             header("Location: manage_customers.php");

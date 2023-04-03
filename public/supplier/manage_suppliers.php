@@ -47,7 +47,7 @@ echo "<br><a href='add_supplier.php' class='Btn'>Add Supplier</a>";
 if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     $delete_id = $_GET['delete'];
     // Delete the record from the database
-    $sql_delete = "DELETE FROM supplier WHERE supplier_id = '$delete_id'";
+    $sql_delete = "DELETE FROM suppliers WHERE supplier_id = '$delete_id'";
 
     if ($conn->query($sql_delete) === TRUE) {
         header("Location: manage_suppliers.php");

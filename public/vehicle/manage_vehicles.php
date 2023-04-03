@@ -44,7 +44,7 @@
     if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         $delete_id = $_GET['delete'];
         // Delete the record from the database
-        $sql_delete = "DELETE FROM vehicle WHERE vehicle_id = '$delete_id'";
+        $sql_delete = "DELETE FROM vehicles WHERE vehicle_id = '$delete_id'";
         
         if ($conn->query($sql_delete) === TRUE) {
             header("Location: manage_vehicles.php");
